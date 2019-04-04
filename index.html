@@ -1,53 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+  <link rel="stylesheet" href="./lib/mui/css/muie.css">
   <!-- 引入字体文件 -->
-   <link rel="stylesheet" href="./lib/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./lib/fontawesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="./styles/index.css">
 </head>
+
 <body>
   <div class="layout">
-  <div class="pyg_header">
-    <!-- 使用mui提供的预设组件，input中的搜索框。要下载引入mui文件 -->
-    <div class="mui-input-row mui-search">
-      <input type="search" class="mui-input-clear" placeholder="">
+    <div class="pyg_header">
+      <!-- 使用mui提供的预设组件，input中的搜索框。要下载引入mui文件 -->
+      <div class="mui-input-row mui-search">
+        <input type="search" class="mui-input-clear" placeholder="">
+      </div>
+    </div>
+    <div class="pyg_content">
+      <!--轮播图 -->
+      <div class="banner">
+        <div id="slider" class="mui-slider">
+          <div class="mui-slider-group mui-slider-loop slider-banner">
+
+          </div>
+          <!-- 小圆点 -->
+          <div class="mui-slider-indicator">
+
+          </div>
+        </div>
+      </div>
+      <!-- 导航栏 -->
+      <div class="pyg_nav">
+        <a href="">
+          <img src="https://image2.suning.cn/uimg/cms/img/155411189774023862.gif?format=_is_120w_120h" alt="">
+          <div>爆款手机</div>
+        </a>
+        <a href="">
+          <img src="https://image1.suning.cn/uimg/cms/img/154708800857670247.png?format=_is_120w_120h.webp" alt="">
+          <div>苏宁超市</div>
+        </a>
+        <a href="">
+          <img src="https://image1.suning.cn/uimg/cms/img/155175138228120594.png?format=_is_120w_120h.webp" alt="">
+          <div>生活超市</div>
+        </a>
+        <a href="">
+          <img src="https://image2.suning.cn/uimg/cms/img/154708804944582613.png?format=_is_120w_120h.webp" alt="">
+          <div>苏宁生鲜</div>
+        </a>
+      </div>
+
+      <!--商品信息列表 -->
+      <div class="pyg_product">
+         
+            
+          </div>
+      </div>
+    
+    <div class="pyg_footer">
+      <!-- 使用mui里面的tab bar 选项卡 -->
+      <nav class="mui-bar mui-bar-tab">
+        <a class="mui-tab-item mui-active" href="#tabbar">
+          <span class="mui-icon mui-icon-home"></span>
+          <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-chat">
+          <span class="mui-icon mui-icon-list"></span>
+          <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-contact">
+          <span class="mui-icon-extra mui-icon-extra-cart"></span>
+          <div class="mui-tab-label">购物车</div>
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-map">
+          <span class="mui-icon mui-icon-contact"></span>
+          <span class="mui-tab-label">我的</span>
+        </a>
+      </nav>
     </div>
   </div>
-  <div class="pyg_content">
-    <div class="banner"></div>
-    <div class="pyg_nav"></div>
-    <div class="pyg_product"></div>
-  </div>
-  <div class="pyg_footer">
-    <!-- 使用mui里面的tab bar 选项卡 -->
-    <nav class="mui-bar mui-bar-tab">
-      <a class="mui-tab-item mui-active" href="#tabbar">
-        <span class="mui-icon mui-icon-home"></span>
-        <span class="mui-tab-label">首页</span>
-      </a>
-      <a class="mui-tab-item" href="#tabbar-with-chat">
-        <span class="mui-icon mui-icon-list"></span>
-        <span class="mui-tab-label">分类</span>
-      </a>
-      <a class="mui-tab-item" href="#tabbar-with-contact">
-        <span class="fa fa-cart-plus"></span>
-        <div class="mui-tab-label">购物车</div>
-      </a>
-      <a class="mui-tab-item" href="#tabbar-with-map">
-        <span class="mui-icon mui-icon-contact"></span>
-        <span class="mui-tab-label">我的</span>
-      </a>
-    </nav>
-  </div>
-  </div>
-  <script src="./lib/mui/js/mui.min.js"></script>
+  <!-- 生成轮播图页面 -->
+  <script type='text/template' id='bannerTemp'>
+    <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+          <div class="mui-slider-item mui-slider-item-duplicate">
+            <a href="{{data[data.length-1].navigator_url}}">
+              <img src="{{data[data.length-1].image__src}}">
+            </a>
+          </div>
+          {{each data  value index }}
+          <div class="mui-slider-item">
+            <a href="{{value.navigator_url}}">
+              <img src="{{value.image_src}}">
+            </a>
+          </div>
+         {{/each}}
+          <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+          <div class="mui-slider-item mui-slider-item-duplicate">
+            <a href="{{data[0].navigator_url}}">
+              <img src="{{data[0].image_src}}">
+            </a>
+          </div>
+  </script>
+  <!-- 动态生成小圆点 -->
+  <script type="text/template" id="indiTemp">
+    <!-- 动态生成小圆点 -->
+    {{each data value index}}
+      <div class="mui-indicator {{index==0?'mui-active':''}}"></div>
+      {{/each}}
+
+  </script>
+  <!-- 动态生成商品信息列表 -->
+<script type="text/template" id= "productTemp">
+{{each data value index}}
+ <div class="pyg_pbox">
+            <img src="{{value.group_img}}" alt="">
+            {{each value.goods v i }}
+            <div class="pyg_bbox">
+               <a href="javascript:;" class="pyg_good">
+                  <img src="{{v.goods_small_logo}}" alt="">
+                  <div class="pyg_desc mui-ellipsis-2">{{v.goods_name}}</div>
+                  <div class ="pyg_price">￥ {{v.goods_price}}</div>
+               </a>
+               <a href="#">
+                <span  class="mui-btn mui-btn-primary mui-btn-outlined">找相似</span>
+               </a>
+            </div>  
+            {{/each}}  
+</div>
+
+{{/each}}
+
+</script>
+
+
+
+
+    <script src="./lib/mui/js/mui.min.js"></script>
   <script src="./lib/zepto/zepto.js"></script>
   <script src="./lib/arttemplate/template-web.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/index.js"></script>
 
 </body>
+
 </html>
