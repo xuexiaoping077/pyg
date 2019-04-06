@@ -1,18 +1,6 @@
 @import'./reset.less'; // 引入外部资源
-.layout{
-  width: 100vw;
-  height: 100vh;
-  max-width: 640px;
-margin:0 auto;
-  
-  display:flex;
-  flex-direction: column;
-}
-.pyg_header {
-  height: 45px;
-  background-color: #eee;
-  padding:4px;
-}
+@import './common.less';
+
 .pyg_content {
   overflow: scroll;
   
@@ -61,6 +49,8 @@ margin:0 auto;
               >.pyg_desc {
                   font-size:12px;
                   color:#333;
+                  // 给文字需要加高度，否则会影响浮动
+                  height: 42px;
               }
               .pyg_price {
                 color:red;
@@ -84,14 +74,5 @@ margin:0 auto;
   
       
     }
-  }
-}
-.pyg_footer {
-  width: 100%;
-  height: 45px;
-  background-color: yellow;
-  font-size:12px;
-  .fa-cart-plus {
-    font-size:20px;
   }
 }
