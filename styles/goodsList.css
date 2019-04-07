@@ -1,0 +1,221 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+ol,
+ul {
+  list-style: none;
+}
+.clearfix::before {
+  content: " ";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  font-size: 0;
+}
+.layout {
+  width: 100vw;
+  height: 100vh;
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.pyg_header {
+  height: 45px;
+  background-color: #eee;
+  padding: 4px;
+}
+.pyg-content {
+  flex: 1;
+  overflow: scroll;
+}
+.pyg_footer {
+  width: 100%;
+  height: 45px;
+  font-size: 12px;
+}
+.pyg_footer .mui-icon-extra-cart {
+  font-size: 15px;
+}
+.pyg_footer .cart {
+  font-size: 12px;
+}
+.loadding::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: .5;
+  content: "";
+  z-index: 100;
+}
+.loadding::after {
+  font: normal normal normal 14px/1 FontAwesome;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  margin-left: -50px;
+  font-size: 100px;
+  color: #0094ff;
+  content: "\f013";
+  z-index: 101;
+  animation: fa-spin 1s infinite linear;
+}
+#header {
+  background-color: cyan;
+}
+#header > .mui-icon {
+  color: #fff;
+  font-weight: bold;
+}
+.pyg-content .mui-scroll-wrapper {
+  background-color: #eee;
+}
+.pyg-content .search_bar {
+  height: 40px;
+}
+.pyg-content .search_bar > .searchBox {
+  background-color: pink;
+  height: 40px;
+  position: relative;
+}
+.pyg-content .search_bar > .searchBox > .query_txt {
+  height: 30px;
+  width: 100%;
+  margin: 5px;
+  border: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.pyg-content .search_bar > .searchBox > .query_btn {
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  position: absolute;
+  top: 5px;
+  right: 0px;
+  background-color: skyblue;
+}
+.pyg-content .goodslist {
+  width: 100%;
+}
+.pyg-content .goodslist > li {
+  width: 100%;
+  margin: 5px 0;
+}
+.pyg-content .goodslist > li > a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: 5px 0;
+  background-color: #fff;
+  overflow: hidden;
+}
+.pyg-content .goodslist > li > a > div {
+  width: 50%;
+  float: left;
+}
+.pyg-content .goodslist > li > a > div > img {
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+}
+.pyg-content .goodslist > li > a > div:nth-of-type(2) {
+  float: right;
+  padding: 20px 0;
+  color: #333;
+  margin-top: 40px;
+}
+.pyg-content .goodslist > li > a > div:nth-of-type(2) > span {
+  margin-bottom: 20px;
+  width: 100%;
+}
