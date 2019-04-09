@@ -1,3 +1,4 @@
+@import './reset.less';
 .layout {
   width: 100vw;
   height: 100vh;
@@ -37,4 +38,8 @@
   content: "\f013";
   z-index: 101;
   animation: fa-spin 1s infinite linear;
+}
+.pyg_content {
+  position: relative;
+  top: 50px;
 }

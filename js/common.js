@@ -18,6 +18,10 @@ $(function () {
     // console.log(obj)
     // obj.url:就是当前发送请求的url
     obj.url = baseURL + obj.url
+    // 再访问私有路径的时候，手动将token值，传输给服务器。通过请求头的方式传递
+    if(obj.url.indexOf('/my/')!=-1){
+      xhr.setRequestHeader('Authorization', sessionStorage.getItem('pyg_token'))
+    }
     
   }
 
@@ -27,4 +31,29 @@ $(function () {
     // console.log(456)
     $('body').removeClass('loadding')
   }
+
+
+  // 动态扩展zepto。比如goodlist与goodsdetail页面需要用到url地址栏的参数。
+  //  extend的作用是，如果相同的属性，覆盖。如果是不同的属性，就追加
+  $.extend($,{
+    getParameter:function(url){
+      var obj = {};
+      url = url.substring(1); //获取地址栏问号，后面的内容
+      //  &符号 拆分
+      var arr = url.split('&') // ['cid=5', 'name=jack']
+      //进行第二次拆分
+      for (var i = 0; i < arr.length; i++) {
+        var temp = arr[i].split('=')  //['cid',5] ['name','jack']
+        obj[temp[0]] = temp[1] //obj[cid] = 5
+      }
+      return obj;
+
+
+
+    }
+  })
+
+
+
+
 })
