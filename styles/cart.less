@@ -1,0 +1,125 @@
+@import './reset.less';
+@import './common.less';
+
+#header {
+  height: 45px;
+  background-color: #fff;
+}
+.pyg_content{
+ 
+  
+  position: relative;
+  top:45px;
+  bottom: 45px;
+  margin-bottom: 60px;
+  
+  .title {
+    font-size: 15px;
+    color: #888;
+    margin-bottom: 3px;
+  }
+
+  .mui-scroll {
+    padding:10px;
+  }
+.pyg_adress{
+   .content {
+     height: 50px;
+     background-color: #fff;
+     display:flex;
+    span{
+      flex:1;
+      display:block;
+      text-align: center;
+      margin-top:10px;
+   
+    }
+    .adress {
+      flex:7;
+      margin-top:8px;
+      color:#333;
+      div:nth-of-type(1){
+        font-size:14px;
+      }
+       div:nth-of-type(2) {
+         font-size: 12px;
+       }
+      
+    }
+   #showCityPicker3 {
+      margin-top:15px;
+      margin-right:10px;
+      color:#007aff;
+    }
+   }
+}
+.totalPrice {
+  margin:20px 0px;
+  
+    .totalContet{
+      padding:0 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background-color: #fff;
+      height: 40px;
+      line-height: 40px;
+
+      >.left{
+        span:nth-of-type(2){
+          color:red;
+        }
+      }
+    }
+
+}
+.orderpro {
+  
+  .orderList{
+    background-color: #fff;
+    .order {
+      display:flex;
+      padding-top:10px;
+      >.mui-checkbox {
+        flex:1;
+        input{
+          left:10px;
+          margin-top:20px;
+        }
+      
+      }
+      >a {
+        width: 100%;
+        flex:2;
+      >img{
+        width: 80%;
+        display: block;
+        vertical-align: middle;
+        }
+      }
+      >.productInfo{
+        flex:4;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+        >.text{
+            font-size:13px;
+            color:#888;
+        }
+        >.mui-numbox{
+          margin:5px 0px;
+        }
+      }
+    }
+  }
+
+}
+}
+.eleToggle {
+  .pyg_orderDel,
+  .pyg_checked,
+  .pyg_userNum {
+    display:none;
+  }
+
+}

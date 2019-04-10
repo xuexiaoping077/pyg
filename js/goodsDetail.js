@@ -57,7 +57,7 @@ var mytoken = sessionStorage.getItem('pyg_token')
     sessionStorage.setItem('redirectUrl', location.href)
     if(!mytoken){
       location.href='./login.html'
-      sessionStorage.setItem('redirectUrl', location.href)
+     //  sessionStorage.setItem('redirectUrl', location.href)
     
     }else{
       // 如果有token，那么发送ajax请求
@@ -74,7 +74,16 @@ var mytoken = sessionStorage.getItem('pyg_token')
             location.href('./login.html')
             // location.href = './login.html?redirectUrl ='+ location.href
           }else{
-            console.log('ok');
+            // 提示
+            mui.confirm('添加成功，是否查看购物车？', '温馨提示', ['跳转', '取消'], function (e) {
+              // index代表当前按钮的索引，索引从0开始
+              if (e.index == 0) {
+                // 跳转到购物车页面
+                location.href = 'cart.html'
+              } else {
+
+              }
+            })
           }
 
         }
